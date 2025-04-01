@@ -1,0 +1,75 @@
+.navbar {
+	background-color: #dfe7da;
+	padding: 1rem;
+}
+
+.topBar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.logo {
+	font-size: 1.5rem;
+	font-weight: bold;
+	color: #2f855a;
+}
+
+.burger {
+	background: #dfe7da;
+	border: none;
+	cursor: pointer;
+}
+
+.burgerIcon {
+	color: #2f855a;
+	font-size: 24px;
+}
+
+.menu {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	max-height: 0;
+	opacity: 0;
+	text-align: left;
+	gap: 0.8rem;
+	overflow: hidden;
+	transition: all 0.4s ease;
+}
+
+.menuOpen {
+	padding: 2em 0;
+	max-height: 500px; /* wystarczająco duża, żeby pomieścić wszystko */
+	opacity: 1;
+}
+
+.menuClosed {
+	max-height: 0;
+	opacity: 0;
+}
+
+.mainLink {
+	font-weight: bold;
+	color: #2f855a;
+	font-size: 1.1rem;
+	cursor: pointer; /* dodane, by wyglądało jak przycisk */
+}
+
+.dropdown {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	padding-left: 1rem;
+}
+
+.link {
+	color: #333;
+	padding-left: 1rem;
+	text-decoration: none;
+	transition: color 0.2s ease;
+}
+
+.link:hover {
+	color: #2f855a;
+}

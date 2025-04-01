@@ -1,0 +1,243 @@
+.header {
+	background-color: #dff0dc;
+	padding: 10px 0;
+	/* border-bottom: 2px solid #a4caa0; */
+}
+
+.container {
+	/* position: relative; */
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: relative;
+}
+
+.logo {
+	font-weight: bold;
+	font-size: 18px;
+	text-decoration: none;
+	color: #2f5e2f;
+	transition: color 0.3s ease;
+}
+
+.logo:hover {
+	color: #3c803c;
+}
+
+.nav {
+	display: flex;
+	top: 100%; /* czyli zaraz pod headerem */
+	margin: 0;
+	padding: 0;
+	gap: 20px;
+	line-height: 1;
+}
+
+.logoWrapper {
+	display: flex;
+	align-items: center;
+}
+
+.link {
+	text-decoration: none;
+	color: #2f5e2f;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.link:hover {
+	color: #3c803c;
+}
+
+.cartIcon {
+	margin-right: 6px;
+	font-size: 20px;
+}
+
+.desktopCart {
+	display: block;
+}
+
+.mobileCart {
+	display: none;
+}
+
+.mobileIcons {
+	display: flex;
+	align-items: center;
+	gap: 12px; /* odstęp między ikonami */
+}
+
+.burger {
+	display: none;
+	background: none;
+	border: none;
+	padding: 10px;
+	margin: 0;
+	font-size: 26px;
+	cursor: pointer;
+	color: #2f5e2f;
+	line-height: 1;
+}
+
+/* keyIcon */
+.keyIcon {
+	font-size: 20px;
+	margin-right: 12px;
+	color: #2f5e2f;
+	transition: color 0.3s ease;
+	/* vertical-align: middle; */
+}
+
+.keyIcon:hover {
+	color: #3c803c;
+}
+/* style wyszukiwanie */
+.searchDesktop {
+	display: flex;
+	align-items: center;
+	gap: 0;
+}
+
+.searchMobile {
+	display: none;
+}
+
+.input {
+	width: 50%;
+	padding: 4px 8px;
+	border: 1px solid #a4caa0;
+	border-radius: 4px;
+	font-size: 14px;
+}
+
+.searchBtn {
+	background: none;
+	border: none;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+/* dropdawn do linku produkty */
+.dropdown {
+	position: relative;
+}
+
+.dropBtn {
+	all: unset; /* 🔥 resetuje wszystkie style przycisku */
+	background: none;
+	border: none;
+	font-size: 16px;
+	font-weight: bold;
+	color: #2f5e2f;
+	cursor: pointer;
+	padding: 0;
+	margin: 0;
+	line-height: 1;
+	/* vertical-align: middle; */
+	display: inline-block;
+}
+
+.dropBtn:hover {
+	color: #3c803c;
+}
+
+.dropdownContent {
+	position: absolute;
+	margin-top: 20px;
+	background-color: #dff0dc;
+	top: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	min-width: 160px;
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+	z-index: 20;
+	flex-direction: column;
+	max-height: 0;
+	opacity: 0;
+	overflow: hidden;
+	pointer-events: none;
+	transition: max-height 0.4s ease, opacity 0.3s ease;
+}
+
+.dropdown.active .dropdownContent {
+	max-height: 300px;
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.dropdownContent a {
+	padding: 10px;
+	text-decoration: none;
+	color: #2f5e2f;
+	font-size: 14px;
+	text-align: center; /* 🔥 centrowanie tekstu */
+	display: block; /* potrzebne, żeby text-align zadziałał */
+}
+
+.dropdownContent a:hover {
+	background-color: #cfe8cc;
+	color: #3c803c;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+	.nav {
+		position: absolute;
+		top: 60px;
+		left: 0;
+		right: 0;
+		background: #dff0dc;
+		flex-direction: column;
+		align-items: center;
+		overflow: hidden;
+		max-height: 0;
+		transition: max-height 0.4s ease, padding 0.3s ease, border 0.3s ease;
+		border: none;
+		gap: 15px;
+		z-index: 10;
+	}
+
+	.nav.open {
+		max-height: 500px; /* zależnie od ilości linków */
+		border: none;
+		padding: 20px 0;
+	}
+
+	.burger {
+		display: block;
+	}
+
+	.desktopCart {
+		display: none;
+	}
+
+	.mobileCart {
+		display: block;
+	}
+
+	/* style wyszukiwanie */
+	.searchDesktop {
+		display: none;
+	}
+
+	.searchMobile {
+		display: flex;
+		align-items: center;
+		margin: 0 auto;
+		gap: 6px;
+	}
+
+	.container {
+		flex-wrap: wrap;
+		gap: 10px;
+	}
+
+	.burger {
+		display: block;
+		margin-left: auto;
+	}
+}

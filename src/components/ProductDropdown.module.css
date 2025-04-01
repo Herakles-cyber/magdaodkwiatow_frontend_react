@@ -1,0 +1,55 @@
+.dropdown {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.label {
+	color: #333;
+	font-size: 1.1rem;
+	cursor: pointer;
+}
+
+.menu {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	padding-left: 1rem;
+	overflow: hidden;
+	max-height: 0;
+	opacity: 0;
+	transition: all 0.4s ease;
+}
+
+.menuOpen {
+	max-height: 300px; /* wystarczająco dużo dla wszystkich linków */
+	opacity: 1;
+}
+
+.menuClosed {
+	max-height: 0;
+	opacity: 0;
+}
+
+.link {
+	text-decoration: none;
+	color: #333;
+	transition: color 0.2s ease;
+	padding-left: 1rem;
+}
+
+.link:hover {
+	color: #2f855a;
+}
+
+.arrow {
+	margin-left: 0.5rem;
+	display: inline-block;
+	transition: transform 0.3s ease;
+	font-size: 0.8rem;
+	color: #333;
+}
+
+.arrowOpen {
+	transform: rotate(180deg);
+}
