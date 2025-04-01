@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import styles from './ProductDropdown.module.css'
+import styles from './ProductDropdownMobile.module.css'
 import { FaChevronDown } from 'react-icons/fa'
 
-const ProductDropdown = ({ onClose }) => {
+const ProductDropdownMobile = ({ onClose }) => {
 	const [open, setOpen] = useState(false)
 
 	const links = [
@@ -29,4 +29,4 @@ const ProductDropdown = ({ onClose }) => {
 	)
 }
 
-export default ProductDropdown
+export default ProductDropdownMobile

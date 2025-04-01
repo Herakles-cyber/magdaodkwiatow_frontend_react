@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { FaBars } from 'react-icons/fa'
 import styles from './NavMobile.module.css'
-import ProductDropdown from './ProductDropdown'
+import ProductDropdownMobile from './ProductDropdownMobile'
 
 const NavMobile = () => {
 	const [menuOpen, setMenuOpen] = useState(false)
@@ -31,7 +31,7 @@ const NavMobile = () => {
 			</div>
 
 			<div className={`${styles.menu} ${menuOpen ? styles.menuOpen : styles.menuClosed}`}>
-				<ProductDropdown onClose={() => setMenuOpen(false)} />
+				<ProductDropdownMobile onClose={() => setMenuOpen(false)} />
 				<Link to='/zaloguj' className={styles.link} onClick={() => setMenuOpen(false)}>
 					Zaloguj
 				</Link>
