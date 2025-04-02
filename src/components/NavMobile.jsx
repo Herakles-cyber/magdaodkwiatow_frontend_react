@@ -1,12 +1,17 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { FaBars, FaShoppingCart } from 'react-icons/fa';
+import { FaBars, FaShoppingCart } from 'react-icons/fa'
 import styles from './NavMobile.module.css'
 import ProductDropdownMobile from './ProductDropdownMobile'
+import CartPanel from './CartPanel'
+import { useCart } from '../context/CartContext'
 
 const NavMobile = () => {
 	const [menuOpen, setMenuOpen] = useState(false)
+	const [cartOpen, setCartOpen] = useState(false)
 	const navRef = useRef(null)
+	const { cartItems } = useCart()
+	const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0)
 
 	useEffect(() => {
 		const handleClickOutside = event => {
@@ -27,8 +32,9 @@ const NavMobile = () => {
 				</Link>
 
 				<div className={styles.icons}>
-					<button className={styles.cart} aria-label='Koszyk'>
+					<button className={styles.cart} aria-label='Koszyk' onClick={() => setCartOpen(true)}>
 						<FaShoppingCart className={styles.icon} />
+						{cartCount > 0 && <span className={styles.badge}>{cartCount}</span>}
 					</button>
 
 					<button className={styles.burger} onClick={() => setMenuOpen(!menuOpen)} aria-label='Menu'>
@@ -38,6 +44,23 @@ const NavMobile = () => {
 			</div>
 
 			<div className={`${styles.menu} ${menuOpen ? styles.menuOpen : styles.menuClosed}`}>
+				<div className={styles.searchWrapper}>
+					<form
+						className={styles.searchForm}
+						onSubmit={e => {
+							e.preventDefault()
+							const query = e.target.elements.query.value
+							if (query.trim()) {
+								setMenuOpen(false)
+								window.location.href = `/produkty?szukaj=${encodeURIComponent(query)}`
+							}
+						}}>
+						<input type='text' name='query' placeholder='Szukaj produktów...' className={styles.searchInput} />
+						<button type='submit' className={styles.searchButton}>
+							🔍
+						</button>
+					</form>
+				</div>
 				<ProductDropdownMobile onClose={() => setMenuOpen(false)} />
 				<Link to='/zaloguj' className={styles.link} onClick={() => setMenuOpen(false)}>
 					Zaloguj
@@ -46,6 +69,7 @@ const NavMobile = () => {
 					Kontakt
 				</Link>
 			</div>
+			<CartPanel isOpen={cartOpen} onClose={() => setCartOpen(false)} />
 		</nav>
 	)
 }
