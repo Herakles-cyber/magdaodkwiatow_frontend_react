@@ -26,50 +26,52 @@ const NavMobile = () => {
 
 	return (
 		<nav className={styles.navbar} ref={navRef}>
-			<div className={styles.topBar}>
-				<Link to='/' className={styles.logo} onClick={() => setMenuOpen(false)}>
-					🌱 GardenShop
-				</Link>
+			<div className={styles.navbarInner}>
+				<div className={styles.topBar}>
+					<Link to='/' className={styles.logo} onClick={() => setMenuOpen(false)}>
+						🌱 GardenShop
+					</Link>
 
-				<div className={styles.icons}>
-					<button className={styles.cart} aria-label='Koszyk' onClick={() => setCartOpen(true)}>
-						<FaShoppingCart className={styles.icon} />
-						{cartCount > 0 && <span className={styles.badge}>{cartCount}</span>}
-					</button>
-
-					<button className={styles.burger} onClick={() => setMenuOpen(!menuOpen)} aria-label='Menu'>
-						<FaBars className={styles.icon} />
-					</button>
-				</div>
-			</div>
-
-			<div className={`${styles.menu} ${menuOpen ? styles.menuOpen : styles.menuClosed}`}>
-				<div className={styles.searchWrapper}>
-					<form
-						className={styles.searchForm}
-						onSubmit={e => {
-							e.preventDefault()
-							const query = e.target.elements.query.value
-							if (query.trim()) {
-								setMenuOpen(false)
-								window.location.href = `/produkty?szukaj=${encodeURIComponent(query)}`
-							}
-						}}>
-						<input type='text' name='query' placeholder='Szukaj produktów...' className={styles.searchInput} />
-						<button type='submit' className={styles.searchButton}>
-							🔍
+					<div className={styles.icons}>
+						<button className={styles.cart} aria-label='Koszyk' onClick={() => setCartOpen(true)}>
+							<FaShoppingCart className={styles.icon} />
+							{cartCount > 0 && <span className={styles.badge}>{cartCount}</span>}
 						</button>
-					</form>
+
+						<button className={styles.burger} onClick={() => setMenuOpen(!menuOpen)} aria-label='Menu'>
+							<FaBars className={styles.icon} />
+						</button>
+					</div>
 				</div>
-				<ProductDropdownMobile onClose={() => setMenuOpen(false)} />
-				<Link to='/zaloguj' className={styles.link} onClick={() => setMenuOpen(false)}>
-					Zaloguj
-				</Link>
-				<Link to='/kontakt' className={styles.link} onClick={() => setMenuOpen(false)}>
-					Kontakt
-				</Link>
+
+				<div className={`${styles.menu} ${menuOpen ? styles.menuOpen : styles.menuClosed}`}>
+					<div className={styles.searchWrapper}>
+						<form
+							className={styles.searchForm}
+							onSubmit={e => {
+								e.preventDefault()
+								const query = e.target.elements.query.value
+								if (query.trim()) {
+									setMenuOpen(false)
+									window.location.href = `/produkty?szukaj=${encodeURIComponent(query)}`
+								}
+							}}>
+							<input type='text' name='query' placeholder='Szukaj produktów...' className={styles.searchInput} />
+							<button type='submit' className={styles.searchButton}>
+								🔍
+							</button>
+						</form>
+					</div>
+					<ProductDropdownMobile onClose={() => setMenuOpen(false)} />
+					<Link to='/zaloguj' className={styles.link} onClick={() => setMenuOpen(false)}>
+						Zaloguj
+					</Link>
+					<Link to='/kontakt' className={styles.link} onClick={() => setMenuOpen(false)}>
+						Kontakt
+					</Link>
+				</div>
+				<CartPanel isOpen={cartOpen} onClose={() => setCartOpen(false)} />
 			</div>
-			<CartPanel isOpen={cartOpen} onClose={() => setCartOpen(false)} />
 		</nav>
 	)
 }

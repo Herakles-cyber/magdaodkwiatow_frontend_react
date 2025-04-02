@@ -1,4 +1,5 @@
 import { BrowserRouter } from 'react-router-dom'
+import './App.css'
 import AppRoutes from './routes/AppRoutes'
 import NavMobile from './components/NavMobile'
 import Header from './components/Header'
@@ -11,7 +12,9 @@ function App() {
 			<CartProvider>
 				<NavMobile />
 				{/* <Header /> */}
-				<AppRoutes />
+				<main className='main'>
+					<AppRoutes />
+				</main>
 				<Footer />
 			</CartProvider>
 		</BrowserRouter>
