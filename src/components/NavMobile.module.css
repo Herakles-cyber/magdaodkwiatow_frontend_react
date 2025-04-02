@@ -73,3 +73,23 @@
 .link:hover {
 	color: #2f855a;
 }
+
+.icons {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+  }
+  
+  .icon {
+	font-size: 24px;
+	color: #2f855a;
+	background: none;
+	border: none;
+	cursor: pointer;
+  }
+  
+  .cart {
+	background: none;
+	border: none;
+  }
+  

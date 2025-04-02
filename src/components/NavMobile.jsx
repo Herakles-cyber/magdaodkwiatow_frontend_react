@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { FaBars } from 'react-icons/fa'
+import { FaBars, FaShoppingCart } from 'react-icons/fa';
 import styles from './NavMobile.module.css'
 import ProductDropdownMobile from './ProductDropdownMobile'
 
@@ -25,9 +25,16 @@ const NavMobile = () => {
 				<Link to='/' className={styles.logo} onClick={() => setMenuOpen(false)}>
 					🌱 GardenShop
 				</Link>
-				<button className={styles.burger} onClick={() => setMenuOpen(!menuOpen)} aria-label='Menu'>
-					<FaBars className={styles.burgerIcon} />
-				</button>
+
+				<div className={styles.icons}>
+					<button className={styles.cart} aria-label='Koszyk'>
+						<FaShoppingCart className={styles.icon} />
+					</button>
+
+					<button className={styles.burger} onClick={() => setMenuOpen(!menuOpen)} aria-label='Menu'>
+						<FaBars className={styles.icon} />
+					</button>
+				</div>
 			</div>
 
 			<div className={`${styles.menu} ${menuOpen ? styles.menuOpen : styles.menuClosed}`}>
