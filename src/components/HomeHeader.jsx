@@ -43,6 +43,7 @@ const HomeHeader = () => {
 				{slides.map((slide, index) => (
 					<div key={index} className={styles.slide}>
 						<img src={slide.image} alt={slide.alt} className={styles.slideImage} />
+						<div className={styles.overlay}></div>
 						<div className={styles.caption}>
 							<h2>{slide.caption}</h2>
 							<Link to={slide.link} className={styles.button}>

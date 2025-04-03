@@ -1,6 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
 import HomePage from '../pages/HomePage'
-import ProductsPage from '../pages/ProductsPage'
 import ProductPage from '../pages/ProductPage'
 import CartPage from '../pages/CartPage'
 import CheckoutPage from '../pages/CheckoutPage'
@@ -11,13 +10,13 @@ import ContactPage from '../pages/ContactPage'
 import BlogPage from '../pages/BlogPage'
 import TestAddToCart from '../components/TestAddToCart'
 import ProductCategory from "../pages/ProductCategory";
+import ProductsPage from '../pages/ProductsPage'
 
 
 export default function AppRoutes() {
 	return (
 		<Routes>
 			<Route path='/' element={<HomePage />} />
-			<Route path='/produkty' element={<ProductsPage />} />
 			<Route path='/produkt/:id' element={<ProductPage />} />
 			<Route path='/koszyk' element={<CartPage />} />
 			<Route path='/checkout' element={<CheckoutPage />} />
@@ -28,6 +27,7 @@ export default function AppRoutes() {
 			<Route path='/blog' element={<BlogPage />} />
 			<Route path='/test-koszyk' element={<TestAddToCart />} />
 			<Route path="/produkty/:category" element={<ProductCategory />} />
+			<Route path="/produkty" element={<ProductsPage />} />
 
 		</Routes>
 	)

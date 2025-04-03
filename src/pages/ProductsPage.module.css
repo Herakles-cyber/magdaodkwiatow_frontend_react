@@ -1,0 +1,11 @@
+/* src/pages/ProductsPage.module.css */
+.productsPage {
+    padding: 20px;
+  }
+  
+  .productsGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
