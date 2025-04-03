@@ -29,7 +29,7 @@ const NavMobile = () => {
 			<div className={styles.navbarInner}>
 				<div className={styles.topBar}>
 					<Link to='/' className={styles.logo} onClick={() => setMenuOpen(false)}>
-						🌱 GardenShop
+						Magdaodkwiatow
 					</Link>
 
 					<div className={styles.icons}>

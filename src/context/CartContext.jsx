@@ -15,8 +15,19 @@ export const CartProvider = ({ children }) => {
 	}, [cartItems])
 
 	const addToCart = product => {
-		setCartItems(prev => [...prev, product])
+		setCartItems(prevItems => {
+			const existingItem = prevItems.find(item => item.id === product.id)
+
+			if (existingItem) {
+				return prevItems.map(item =>
+					item.id === product.id ? { ...item, quantity: item.quantity + product.quantity } : item
+				)
+			}
+
+			return [...prevItems, product]
+		})
 	}
+
 	const removeFromCart = id => {
 		setCartItems(prev => prev.filter(item => item.id !== id))
 	}

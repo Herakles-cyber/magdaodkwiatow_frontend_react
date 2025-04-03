@@ -8,7 +8,7 @@ const ProductDropdownMobile = ({ onClose }) => {
 
 	const links = [
 		{ path: '/produkty/nasiona', text: 'Nasiona' },
-		{ path: '/produkty/ksiazki', text: 'Książki i e-booki' },
+		{ path: '/produkty/ksiazki-i-ebooki', text: 'Książki i e-booki' },
 		{ path: '/produkty/odziez', text: 'Odzież' },
 	]
 

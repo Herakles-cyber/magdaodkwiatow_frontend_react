@@ -10,6 +10,8 @@ import UserAccountPage from '../pages/UserAccountPage'
 import ContactPage from '../pages/ContactPage'
 import BlogPage from '../pages/BlogPage'
 import TestAddToCart from '../components/TestAddToCart'
+import ProductCategory from "../pages/ProductCategory";
+
 
 export default function AppRoutes() {
 	return (
@@ -25,6 +27,8 @@ export default function AppRoutes() {
 			<Route path='/kontakt' element={<ContactPage />} />
 			<Route path='/blog' element={<BlogPage />} />
 			<Route path='/test-koszyk' element={<TestAddToCart />} />
+			<Route path="/produkty/:category" element={<ProductCategory />} />
+
 		</Routes>
 	)
 }

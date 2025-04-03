@@ -1,0 +1,17 @@
+.categoryPage {
+	padding: 2rem;
+	text-align: center;
+}
+
+.grid {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 2rem;
+}
+
+.card {
+	max-width: 320px;
+	width: 100%;
+	margin: 0 auto;
+}
