@@ -1,4 +1,15 @@
 // HomePage.jsx
-export default function HomePage() {
-	return <h1>Strona główna</h1>
+// src/pages/HomePage.jsx
+import React from 'react'
+import HomeHeader from '../components/HomeHeader'
+
+const HomePage = () => {
+	return (
+		<div>
+			<HomeHeader />
+			{/* Inne sekcje strony głównej */}
+		</div>
+	)
 }
+
+export default HomePage

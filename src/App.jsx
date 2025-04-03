@@ -5,6 +5,8 @@ import NavMobile from './components/NavMobile'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import { CartProvider } from './context/CartContext'
+import React from 'react'
+
 
 function App() {
 	return (
