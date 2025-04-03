@@ -94,3 +94,34 @@
 	border-radius: 4px;
 	padding: 0.25rem;
 }
+
+.summary {
+	margin-top: 20px;
+	padding-top: 10px;
+	font-size: 18px;
+	font-weight: 600;
+	text-align: right;
+	color: #333;
+}
+
+.order {
+	text-align: right;
+	margin-top: 20px;
+}
+
+.orderButton {
+	display: inline-block;
+	padding: 10px 20px;
+	background-color: #2f855a;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 4px;
+	font-weight: bold;
+	transition: background-color 0.3s ease;
+}
+
+.orderButton:hover {
+    color: #fff;
+	background-color: #276749; /* odcień ciemniejszy, możesz dostosować */
+	text-decoration: none;
+}
