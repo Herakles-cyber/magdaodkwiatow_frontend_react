@@ -22,7 +22,7 @@
 .name {
 	margin-top: 0.5rem;
 	font-size: 1.1rem;
-	color: #2f855a;
+	color: #b2c98e;
 }
 
 .price {
@@ -32,13 +32,18 @@
 }
 
 .button {
-	background: #2f855a;
+	background: #b2c98e;
 	color: white;
 	border: none;
 	border-radius: 4px;
 	padding: 0.5rem 1rem;
 	cursor: pointer;
 	font-size: 0.9rem;
+	transition: background .3s ease;
+}
+
+.button:hover {
+	background: #778b57;
 }
 
 .quantityControls {
@@ -62,14 +67,19 @@
 .quantityButton {
 	width: 35px;
 	cursor: pointer;
-	background-color: #2f855a;
+	background-color: #b2c98e;
 	color: white;
+	transition: background-color 0.3s ease;
+}
+
+.quantityButton:hover {
+	background-color: #778b57;
 }
 
 .quantityInput {
 	width: 50px;
 	margin: 0 0.4rem;
-	border: 2px solid #2f855a;
+	border: 2px solid #b2c98e;
 	background-color: #fff;
 	color: #333;
 }

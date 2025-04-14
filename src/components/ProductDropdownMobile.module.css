@@ -1,11 +1,12 @@
 .dropdown {
 	display: flex;
 	flex-direction: column;
+	color: #ffffff;
 	gap: 0.5rem;
 }
 
 .label {
-	color: #333;
+	color: #ffffff;
 	font-size: 1.1rem;
 	cursor: pointer;
 }
@@ -31,9 +32,10 @@
 	opacity: 0;
 }
 
+
 .link {
 	text-decoration: none;
-	color: #333;
+	color: #ffffff;
 	transition: color 0.2s ease;
 	padding-left: 1rem;
 }
@@ -47,7 +49,7 @@
 	display: inline-block;
 	transition: transform 0.3s ease;
 	font-size: 0.8rem;
-	color: #333;
+	color: #ffffff;
 }
 
 .arrowOpen {

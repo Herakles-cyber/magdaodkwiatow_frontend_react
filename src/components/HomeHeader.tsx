@@ -1,10 +1,8 @@
-// src/components/HomeHeader.jsx
 import React from 'react'
 import Slider from 'react-slick'
 import { Link } from 'react-router-dom'
 import styles from './HomeHeader.module.css'
 
-// Konfiguracja karuzeli
 const settings = {
 	dots: true,
 	infinite: true,
@@ -15,9 +13,16 @@ const settings = {
 	slidesToScroll: 1,
 }
 
-const slides = [
+interface Slide {
+	image: string
+	alt: string
+	caption: string
+	link: string
+}
+
+const slides: Slide[] = [
 	{
-		image: '/images/nasiona_karuzela.jpg', // podmień ścieżkę do obrazu
+		image: '/images/nasiona_karuzela.jpg',
 		alt: 'Promocja 1',
 		caption: 'Nowe nasiona już w sprzedaży!',
 		link: '/produkty/nasiona',
@@ -36,7 +41,7 @@ const slides = [
 	},
 ]
 
-const HomeHeader = () => {
+const HomeHeader: React.FC = () => {
 	return (
 		<header className={styles.header}>
 			<Slider {...settings}>

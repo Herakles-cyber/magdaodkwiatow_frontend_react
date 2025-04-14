@@ -3,10 +3,14 @@ import { Link } from 'react-router-dom'
 import styles from './ProductDropdownMobile.module.css'
 import { FaChevronDown } from 'react-icons/fa'
 
-const ProductDropdownMobile = ({ onClose }) => {
+interface ProductDropdownMobileProps {
+	onClose: () => void
+}
+
+const ProductDropdownMobile: React.FC<ProductDropdownMobileProps> = ({ onClose }) => {
 	const [open, setOpen] = useState(false)
 
-	const links = [
+	const links: { path: string; text: string }[] = [
 		{ path: '/produkty/nasiona', text: 'Nasiona' },
 		{ path: '/produkty/ksiazki-i-ebooki', text: 'Książki i e-booki' },
 		{ path: '/produkty/odziez', text: 'Odzież' },

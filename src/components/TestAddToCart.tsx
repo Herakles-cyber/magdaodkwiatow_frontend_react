@@ -1,19 +1,26 @@
-// src/components/TestAddToCart.jsx
-import { useCart } from '../context/CartContext'
+// src/components/TestAddToCart.tsx
+import { useCart, CartItem } from '../context/CartContext'
 
-const TestAddToCart = () => {
+const TestAddToCart: React.FC = () => {
 	const { addToCart } = useCart()
 
 	const handleAdd = () => {
-		addToCart({ id: Date.now(), name: 'Testowy produkt', quantity: 1 })
+		const testProduct: CartItem = {
+			id: Date.now(),
+			name: 'Testowy produkt',
+			price: 0,
+			image: '',
+			category: '',
+			quantity: 1,
+		}
+		addToCart(testProduct)
 	}
 
 	return (
-		<div style={{ padding: '2rem', textAlign: 'center', minHeight: '200vh', }}>
+		<div style={{ padding: '2rem', textAlign: 'center', minHeight: '200vh' }}>
 			<h2>Test dodawania do koszyka</h2>
 			<button
 				style={{
-					// minHeight: '200vh',
 					padding: '0.75rem 1.5rem',
 					backgroundColor: '#2f855a',
 					color: 'white',

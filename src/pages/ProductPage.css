@@ -22,7 +22,7 @@
 }
 
 .productAddButton {
-	background-color: #2e7d32;
+	background-color: #b2c98e;
 	color: white;
 	padding: 0.6rem 1.2rem;
 	border: none;
@@ -32,7 +32,7 @@
 }
 
 .productAddButton:hover {
-	background-color: #1b5e20;
+	background-color: #b2c98e;
 }
 
 .quantityControls {
@@ -43,8 +43,8 @@
 }
 
 .quantityButton {
-	background-color: #1b5e20;
-    color: #fff;
+	background-color: #b2c98e;
+	color: #fff;
 }
 .quantityButton,
 .quantityInput {
@@ -63,6 +63,6 @@
 	padding: 0.5rem;
 	margin: 0 0.5rem;
 	font-size: 1.1rem;
-	border: 2px solid #2f855a;
+	border: 2px solid #b2c98e;
 	border-radius: 6px;
 }

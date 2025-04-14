@@ -7,34 +7,33 @@ import { IoKeyOutline } from 'react-icons/io5'
 export default function Header() {
 	const [menuOpen, setMenuOpen] = useState(false)
 	const [isDropdownVisible, setIsDropdownVisible] = useState(false)
-	const dropdownTimeoutRef = useRef(null)
 
-	// REFERENCJE
-	const navRef = useRef(null)
-	const burgerRef = useRef(null)
+	const dropdownTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+	const navRef = useRef<HTMLElement | null>(null)
+	const burgerRef = useRef<HTMLButtonElement | null>(null)
 
 	const toggleMenu = () => setMenuOpen(!menuOpen)
 
-	// obsługa doropdawn by zamykał się po 2 sec
 	const showDropdown = () => {
-		clearTimeout(dropdownTimeoutRef.current)
+		if (dropdownTimeoutRef.current) {
+			clearTimeout(dropdownTimeoutRef.current)
+		}
 		setIsDropdownVisible(true)
 	}
 
 	const hideDropdown = () => {
 		dropdownTimeoutRef.current = setTimeout(() => {
 			setIsDropdownVisible(false)
-		}, 500) // 2 sekundy opóźnienia
+		}, 500)
 	}
 
-	// OBSŁUGA KLIKNIĘCIA POZA MENU
 	useEffect(() => {
-		function handleClickOutside(event) {
+		function handleClickOutside(event: MouseEvent) {
 			if (
 				navRef.current &&
-				!navRef.current.contains(event.target) &&
+				!navRef.current.contains(event.target as Node) &&
 				burgerRef.current &&
-				!burgerRef.current.contains(event.target)
+				!burgerRef.current.contains(event.target as Node)
 			) {
 				setMenuOpen(false)
 			}
@@ -52,14 +51,12 @@ export default function Header() {
 	return (
 		<header className={styles.header}>
 			<div className={styles.container}>
-				{/* Logo po lewej */}
 				<div className={styles.logoWrapper}>
 					<Link to='/' className={styles.logo}>
 						Sklep Ogrodniczy
 					</Link>
 				</div>
 
-				{/* Ikony mobilne obok siebie */}
 				<div className={styles.mobileIcons}>
 					<div className={styles.mobileCart}>
 						<Link to='/koszyk' className={styles.link} onClick={() => setMenuOpen(false)}>
@@ -71,11 +68,7 @@ export default function Header() {
 					</button>
 				</div>
 
-				{/* Nawigacja desktop + rozwijana mobilna */}
 				<nav ref={navRef} className={`${styles.nav} ${menuOpen ? styles.open : ''}`}>
-					{/* <Link to='/produkty' className={styles.link} onClick={() => setMenuOpen(false)}>
-						Produkty
-					</Link> */}
 					<div
 						className={`${styles.dropdown} ${isDropdownVisible ? styles.active : ''}`}
 						onMouseEnter={showDropdown}
@@ -102,12 +95,11 @@ export default function Header() {
 					</Link>
 				</nav>
 
-				{/* Wyszukiwanie – desktop (obok koszyka) */}
 				<form
 					className={styles.searchDesktop}
-					onSubmit={e => {
+					onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
 						e.preventDefault()
-						const query = e.target.elements.query.value
+						const query = (e.currentTarget.elements.namedItem('query') as HTMLInputElement).value
 						if (query.trim()) {
 							setMenuOpen(false)
 							window.location.href = `/produkty?szukaj=${encodeURIComponent(query)}`
@@ -119,7 +111,6 @@ export default function Header() {
 					</button>
 				</form>
 
-				{/* Koszyk dla desktopu */}
 				<div className={styles.desktopCart}>
 					<Link to='/logowanie' className={styles.link}>
 						<IoKeyOutline className={styles.keyIcon} />

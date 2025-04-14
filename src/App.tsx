@@ -7,8 +7,7 @@ import Footer from './components/Footer'
 import { CartProvider } from './context/CartContext'
 import React from 'react'
 
-
-function App() {
+const App: React.FC = () => {
 	return (
 		<BrowserRouter>
 			<CartProvider>

@@ -6,16 +6,17 @@ import ProductDropdownMobile from './ProductDropdownMobile'
 import CartPanel from './CartPanel'
 import { useCart } from '../context/CartContext'
 
-const NavMobile = () => {
+const NavMobile: React.FC = () => {
 	const [menuOpen, setMenuOpen] = useState(false)
 	const [cartOpen, setCartOpen] = useState(false)
-	const navRef = useRef(null)
+	const navRef = useRef<HTMLElement | null>(null)
+
 	const { cartItems } = useCart()
 	const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0)
 
 	useEffect(() => {
-		const handleClickOutside = event => {
-			if (menuOpen && navRef.current && !navRef.current.contains(event.target)) {
+		const handleClickOutside = (event: MouseEvent) => {
+			if (menuOpen && navRef.current && !navRef.current.contains(event.target as Node)) {
 				setMenuOpen(false)
 			}
 		}
@@ -48,9 +49,9 @@ const NavMobile = () => {
 					<div className={styles.searchWrapper}>
 						<form
 							className={styles.searchForm}
-							onSubmit={e => {
+							onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
 								e.preventDefault()
-								const query = e.target.elements.query.value
+								const query = (e.currentTarget.elements.namedItem('query') as HTMLInputElement).value
 								if (query.trim()) {
 									setMenuOpen(false)
 									window.location.href = `/produkty?szukaj=${encodeURIComponent(query)}`

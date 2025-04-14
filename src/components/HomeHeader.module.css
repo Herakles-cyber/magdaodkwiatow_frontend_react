@@ -1,7 +1,8 @@
 /* src/components/HomeHeader.module.css */
 .header {
 	position: relative;
-	width: 100%;
+	width: 100vw;
+	margin-left: calc(-50vw + 50%);
 	height: 400px;
 	overflow: hidden;
 }
@@ -43,7 +44,7 @@
 	display: inline-block;
 	margin-top: 20px;
 	padding: 10px 20px;
-	background-color: #2f855a;
+	background-color: #b2c98e;
 	color: #fff;
 	text-decoration: none;
 	border-radius: 4px;
@@ -52,6 +53,6 @@
 }
 
 .button:hover {
-	background-color: #276749;
+	background-color: #778b57;
 	color: #fff;
 }
