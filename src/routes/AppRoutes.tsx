@@ -11,6 +11,7 @@ import BlogPage from '../pages/BlogPage'
 import TestAddToCart from '../components/TestAddToCart'
 import ProductCategory from '../pages/ProductCategory'
 import ProductsPage from '../pages/ProductsPage'
+import SuccessPage from '../pages/SuccessPage' // 👈 dodane
 
 export default function AppRoutes() {
 	return (
@@ -19,7 +20,7 @@ export default function AppRoutes() {
 			<Route path='/produkt/:id' element={<ProductPage />} />
 			<Route path='/koszyk' element={<CartPage />} />
 			<Route path='/checkout' element={<CheckoutPage />} />
-			<Route path='/logowanie' element={<LoginPage />} />
+			<Route path='/login' element={<LoginPage />} /> {/* 👈 zmieniono z logowanie */}
 			<Route path='/rejestracja' element={<RegisterPage />} />
 			<Route path='/konto' element={<UserAccountPage />} />
 			<Route path='/kontakt' element={<ContactPage />} />
@@ -27,6 +28,7 @@ export default function AppRoutes() {
 			<Route path='/test-koszyk' element={<TestAddToCart />} />
 			<Route path='/produkty/:category' element={<ProductCategory />} />
 			<Route path='/produkty' element={<ProductsPage />} />
+			<Route path='/success' element={<SuccessPage />} /> {/* 👈 dodana nowa trasa */}
 		</Routes>
 	)
 }
