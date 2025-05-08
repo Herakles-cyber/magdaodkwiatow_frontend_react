@@ -6,10 +6,15 @@ import App from './App'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
+import { AuthContextProvider } from './context/AuthContext'
+
 const rootElement = document.getElementById('root')
 if (!rootElement) throw new Error("Root element not found")
+
 createRoot(rootElement).render(
   <StrictMode>
-    <App />
+    <AuthContextProvider>
+      <App />
+    </AuthContextProvider>
   </StrictMode>
 )
