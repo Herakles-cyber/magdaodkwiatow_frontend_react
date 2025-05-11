@@ -12,6 +12,9 @@ import TestAddToCart from "../components/TestAddToCart";
 import ProductCategory from "../pages/ProductCategory";
 import ProductsPage from "../pages/ProductsPage";
 import SuccessPage from "../pages/SuccessPage"; // 👈 dodane
+import ResetPasswordPage from "../pages/ResetPasswordPage";
+// import NewPasswordPage from "@/pages/NewPasswordPage";
+import AuthActionHandler from "@/pages/auth/AuthActionHandler";
 
 export default function AppRoutes() {
   return (
@@ -21,7 +24,6 @@ export default function AppRoutes() {
       <Route path="/koszyk" element={<CartPage />} />
       <Route path="/checkout" element={<CheckoutPage />} />
       <Route path="/login" element={<LoginPage />} />{" "}
-      {/* 👈 zmieniono z logowanie */}
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/konto" element={<UserAccountPage />} />
       <Route path="/kontakt" element={<ContactPage />} />
@@ -30,7 +32,9 @@ export default function AppRoutes() {
       <Route path="/produkty/:category" element={<ProductCategory />} />
       <Route path="/produkty" element={<ProductsPage />} />
       <Route path="/success" element={<SuccessPage />} />{" "}
-      {/* 👈 dodana nowa trasa */}
+      <Route path="/reset-password" element={<ResetPasswordPage />} />
+      {/* <Route path="/reset-hasla" element={<NewPasswordPage />} /> */}
+      <Route path="/auth-handler" element={<AuthActionHandler />} />
     </Routes>
   );
 }

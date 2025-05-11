@@ -18,22 +18,6 @@ const LoginPage = () => {
   const [searchParams] = useSearchParams();
   const isVerified = searchParams.get("mode") === "verifyEmail";
 
-  useEffect(() => {
-    const mode = searchParams.get("mode");
-    const oobCode = searchParams.get("oobCode");
-
-    if (mode === "verifyEmail" && oobCode) {
-      applyActionCode(auth, oobCode)
-        .then(() => {
-          console.log("Email successfully verified!");
-          // Usuwamy reload, nie robimy tutaj nic więcej
-        })
-        .catch((error) => {
-          console.error("Error verifying email:", error);
-        });
-    }
-  }, [searchParams]);
-
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
@@ -145,6 +129,16 @@ const LoginPage = () => {
         Nie masz konta?{" "}
         <a href="/register" style={{ color: "#2f855a", fontWeight: "bold" }}>
           Zarejestruj się
+        </a>
+      </p>
+
+      <p style={{ marginTop: "0.5rem" }}>
+        Nie pamiętasz hasła?{" "}
+        <a
+          href="/reset-password"
+          style={{ color: "#2f855a", fontWeight: "bold" }}
+        >
+          Odzyskaj hasło
         </a>
       </p>
 
